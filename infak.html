@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ketentuan Infak - Media Pembelajaran Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            font-size: 1.2em;
+            line-height: 1.8;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        .slide-enter {
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .bounce-animation {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+        
+        .correct-answer {
+            background: linear-gradient(135deg, #10b981, #059669);
+            animation: correctPulse 0.6s ease;
+        }
+        
+        .wrong-answer {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            animation: wrongShake 0.6s ease;
+        }
+        
+        @keyframes correctPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes wrongShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .game-card {
+            perspective: 1000px;
+        }
+        
+        .game-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .game-card.flipped .game-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .game-card-front, .game-card-back {
+            backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .game-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .celebration {
+            animation: celebration 1s ease-in-out;
+        }
+        
+        @keyframes celebration {
+            0% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(5deg); }
+            50% { transform: scale(1.2) rotate(-5deg); }
+            75% { transform: scale(1.1) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-green-600 to-emerald-700 text-white p-6 shadow-lg">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">
+                <i class="fas fa-hand-holding-heart mr-3"></i>Ketentuan Infak<i class="fas fa-donate ml-3"></i>
+            </h1>
+            <p class="text-lg opacity-90">Media Pembelajaran Interaktif - Fikih Kelas 5 MI</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-center space-x-4">
+                <button onclick="showSection('materi')" class="nav-btn bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full transition-all duration-300 font-medium">
+                    <i class="fas fa-book mr-2"></i>Materi
+                </button>
+                <button onclick="showSection('game')" class="nav-btn bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded-full transition-all duration-300 font-medium">
+                    <i class="fas fa-gamepad mr-2"></i>Game
+                </button>
+                <button onclick="showSection('evaluasi')" class="nav-btn bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full transition-all duration-300 font-medium">
+                    <i class="fas fa-clipboard-check mr-2"></i>Evaluasi
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Materi Section -->
+        <section id="materi" class="section-content">
+            <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+                <h2 class="text-3xl font-bold text-center mb-8 text-green-700">
+                    <i class="fas fa-book-open mr-3"></i>Materi Ketentuan Infak
+                </h2>
+                
+                <!-- Pengertian -->
+                <div class="mb-8 card-hover bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border-l-4 border-blue-500">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-700 flex items-center">
+                        <i class="fas fa-search mr-3"></i>Pengertian Infak
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Infak adalah mengeluarkan sebagian harta yang dimiliki untuk kepentingan yang diperintahkan Allah SWT. 
+                        Infak bersifat umum dan tidak terikat oleh nisab (batas minimal) atau waktu tertentu. Setiap muslim dianjurkan untuk berinfak sesuai kemampuannya.
+                    </p>
+                    <div class="bg-blue-100 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">
+                            <i class="fas fa-quote-right mr-2"></i>Dalil Al-Quran:
+                        </h4>
+                        <p class="arabic-text text-blue-900 mb-2">وَأَنفِقُوا مِمَّا رَزَقْنَاكُمْ</p>
+                        <p class="text-blue-700 italic">"Dan infakkanlah sebagian dari apa yang telah Kami rezekikan kepada kalian" (QS. Al-Baqarah: 254)</p>
+                    </div>
+                </div>
+
+                <!-- Hukum -->
+                <div class="mb-8 card-hover bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border-l-4 border-green-500">
+                    <h3 class="text-xl font-semibold mb-4 text-green-700 flex items-center">
+                        <i class="fas fa-balance-scale mr-3"></i>Hukum Infak
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Infak hukumnya <strong>SUNNAH MUAKKAD</strong> (sangat dianjurkan) bagi setiap muslim yang mampu. 
+                        Dalam kondisi tertentu seperti bencana alam atau keadaan darurat, infak bisa menjadi wajib kifayah.
+                    </p>
+                    <div class="bg-yellow-100 p-4 rounded-lg">
+                        <h4 class="font-semibold text-yellow-800 mb-2">
+                            <i class="fas fa-hadith mr-2"></i>Dalil Hadits:
+                        </h4>
+                        <p class="arabic-text text-yellow-900 mb-2">مَا نَقَصَ مَالٌ مِنْ صَدَقَةٍ</p>
+                        <p class="text-yellow-700 italic">"Harta tidak akan berkurang karena sedekah" (HR. Muslim)</p>
+                    </div>
+                </div>
+
+                <!-- Syarat dan Rukun -->
+                <div class="mb-8 card-hover bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border-l-4 border-purple-500">
+                    <h3 class="text-xl font-semibold mb-4 text-purple-700 flex items-center">
+                        <i class="fas fa-check-circle mr-3"></i>Syarat dan Rukun Infak
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-3 text-purple-800">Syarat Infak:</h4>
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-mosque text-xl mr-3 text-green-600"></i>
+                                        <span class="font-medium">Beragama Islam</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-brain text-xl mr-3 text-blue-600"></i>
+                                        <span class="font-medium">Berakal sehat</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-coins text-xl mr-3 text-yellow-600"></i>
+                                        <span class="font-medium">Memiliki harta</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-purple-800">Rukun Infak:</h4>
+                            <div class="space-y-3">
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-user text-xl mr-3 text-purple-600"></i>
+                                        <span class="font-medium">Munfiq (pemberi)</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-gift text-xl mr-3 text-red-600"></i>
+                                        <span class="font-medium">Munfaq (harta)</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-hands-helping text-xl mr-3 text-teal-600"></i>
+                                        <span class="font-medium">Munfaq 'alaih (penerima)</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-heart text-xl mr-3 text-pink-600"></i>
+                                        <span class="font-medium">Niat (ikhlas)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jenis dan Bentuk -->
+                <div class="mb-8 card-hover bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-xl border-l-4 border-orange-500">
+                    <h3 class="text-xl font-semibold mb-4 text-orange-700 flex items-center">
+                        <i class="fas fa-list mr-3"></i>Jenis dan Bentuk Infak
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h4 class="font-semibold mb-3 text-gray-800">Berdasarkan Bentuk:</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center p-3 bg-green-100 rounded-lg">
+                                    <i class="fas fa-coins text-2xl mr-3 text-green-600"></i>
+                                    <span class="font-medium">Infak Harta (uang, emas, dll)</span>
+                                </div>
+                                <div class="flex items-center p-3 bg-blue-100 rounded-lg">
+                                    <i class="fas fa-seedling text-2xl mr-3 text-blue-600"></i>
+                                    <span class="font-medium">Infak Barang (makanan, pakaian)</span>
+                                </div>
+                                <div class="flex items-center p-3 bg-purple-100 rounded-lg">
+                                    <i class="fas fa-hands-helping text-2xl mr-3 text-purple-600"></i>
+                                    <span class="font-medium">Infak Tenaga (gotong royong)</span>
+                                </div>
+                                <div class="flex items-center p-3 bg-yellow-100 rounded-lg">
+                                    <i class="fas fa-brain text-2xl mr-3 text-yellow-600"></i>
+                                    <span class="font-medium">Infak Pikiran (ilmu, nasihat)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <h4 class="font-semibold mb-3 text-gray-800">Berdasarkan Sifat:</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center p-3 bg-teal-100 rounded-lg">
+                                    <i class="fas fa-eye text-2xl mr-3 text-teal-600"></i>
+                                    <span class="font-medium">Infak Terang-terangan</span>
+                                </div>
+                                <div class="flex items-center p-3 bg-indigo-100 rounded-lg">
+                                    <i class="fas fa-eye-slash text-2xl mr-3 text-indigo-600"></i>
+                                    <span class="font-medium">Infak Sembunyi-sembunyi</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 p-4 bg-gray-100 rounded-lg">
+                                <p class="text-gray-700 text-sm">
+                                    <i class="fas fa-info-circle mr-2"></i>
+                                    <strong>Catatan:</strong> Infak sembunyi lebih utama karena lebih ikhlas dan terhindar dari riya'
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adab Berinfak -->
+                <div class="mb-8 card-hover bg-gradient-to-r from-teal-50 to-cyan-50 p-6 rounded-xl border-l-4 border-teal-500">
+                    <h3 class="text-xl font-semibold mb-4 text-teal-700 flex items-center">
+                        <i class="fas fa-heart mr-3"></i>Adab Berinfak
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="bg-green-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800 mb-2">
+                                    <i class="fas fa-pray mr-2"></i>Niat yang Ikhlas
+                                </h4>
+                                <p class="text-green-700">Berinfak semata-mata karena Allah SWT, bukan untuk pamer atau mencari pujian</p>
+                            </div>
+                            <div class="bg-blue-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-800 mb-2">
+                                    <i class="fas fa-gem mr-2"></i>Memberikan yang Terbaik
+                                </h4>
+                                <p class="text-blue-700">Pilih harta yang baik dan halal, jangan memberikan yang rusak atau tidak layak</p>
+                            </div>
+                            <div class="bg-purple-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-800 mb-2">
+                                    <i class="fas fa-user-secret mr-2"></i>Menjaga Kerahasiaan
+                                </h4>
+                                <p class="text-purple-700">Lebih baik berinfak secara sembunyi-sembunyi agar terhindar dari riya'</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-yellow-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-yellow-800 mb-2">
+                                    <i class="fas fa-smile mr-2"></i>Berinfak dengan Senang Hati
+                                </h4>
+                                <p class="text-yellow-700">Memberikan dengan wajah ceria dan tidak merasa terpaksa</p>
+                            </div>
+                            <div class="bg-red-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-red-800 mb-2">
+                                    <i class="fas fa-ban mr-2"></i>Tidak Menyakiti Penerima
+                                </h4>
+                                <p class="text-red-700">Jangan menyinggung atau merendahkan orang yang diberi infak</p>
+                            </div>
+                            <div class="bg-teal-100 p-4 rounded-lg">
+                                <h4 class="font-semibold text-teal-800 mb-2">
+                                    <i class="fas fa-balance-scale mr-2"></i>Sesuai Kemampuan
+                                </h4>
+                                <p class="text-teal-700">Berinfak sesuai kemampuan, tidak berlebihan hingga merugikan diri sendiri</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tata Cara Berinfak -->
+                <div class="mb-8 card-hover bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-xl border-l-4 border-indigo-500">
+                    <h3 class="text-xl font-semibold mb-4 text-indigo-700 flex items-center">
+                        <i class="fas fa-list-ol mr-3"></i>Tata Cara Berinfak
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-lg">
+                            <div class="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Niat Ikhlas</h4>
+                                <p class="text-gray-600">Berniat berinfak semata-mata karena Allah SWT</p>
+                                <div class="mt-2 p-3 bg-gray-50 rounded">
+                                    <p class="arabic-text text-gray-800">نَوَيْتُ أَنْ أُنْفِقَ هَذَا الْمَالَ لِلَّهِ تَعَالَى</p>
+                                    <p class="text-gray-600 text-sm mt-1 italic">"Saya niat menginfakkan harta ini karena Allah Ta'ala"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-lg">
+                            <div class="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Memilih Harta yang Baik</h4>
+                                <p class="text-gray-600">Pilih harta yang halal dan berkualitas baik untuk diinfakkan</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-lg">
+                            <div class="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">3</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Menentukan Penerima</h4>
+                                <p class="text-gray-600">Berikan kepada yang berhak dan membutuhkan dengan cara yang sopan</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-lg">
+                            <div class="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">4</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Doa Setelah Berinfak</h4>
+                                <div class="mt-2 p-3 bg-gray-50 rounded">
+                                    <p class="arabic-text text-gray-800">اللَّهُمَّ بَارِكْ لَنَا فِيمَا أَعْطَيْتَنَا</p>
+                                    <p class="text-gray-600 text-sm mt-1 italic">"Ya Allah, berkahilah kami dalam apa yang telah Engkau berikan kepada kami"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4 bg-white p-4 rounded-lg">
+                            <div class="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">5</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Menjaga Kerahasiaan</h4>
+                                <p class="text-gray-600">Tidak menceritakan atau memamerkan infak yang telah diberikan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hikmah dan Manfaat -->
+                <div class="card-hover bg-gradient-to-r from-pink-50 to-rose-50 p-6 rounded-xl border-l-4 border-pink-500">
+                    <h3 class="text-xl font-semibold mb-4 text-pink-700 flex items-center">
+                        <i class="fas fa-lightbulb mr-3"></i>Hikmah dan Manfaat Infak
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-3 text-gray-800">Manfaat untuk Pemberi Infak:</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-start p-3 bg-white rounded-lg">
+                                    <i class="fas fa-heart text-xl mr-3 text-red-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-medium">Mensucikan Jiwa</span>
+                                        <p class="text-sm text-gray-600">Membersihkan hati dari sifat kikir dan tamak</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start p-3 bg-white rounded-lg">
+                                    <i class="fas fa-chart-line text-xl mr-3 text-green-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-medium">Menambah Berkah</span>
+                                        <p class="text-sm text-gray-600">Allah akan melipatgandakan rezeki</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start p-3 bg-white rounded-lg">
+                                    <i class="fas fa-shield-alt text-xl mr-3 text-blue-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-medium">Perlindungan Allah</span>
+                                        <p class="text-sm text-gray-600">Terhindar dari bencana dan musibah</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start p-3 bg-white rounded-lg">
+                                    <i class="fas fa-star text-xl mr-3 text-yellow-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-medium">Pahala Berlipat</span>
+                                        <p class="text-sm text-gray-600">Mendapat pahala yang besar di akhirat</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-gray-800">Manfaat untuk Masyarakat:</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-start p-3 bg-white rounded-lg">
+                                    <i class="fas fa-balance-scale text-xl mr-3 text-purple-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-medium">Mengurangi Kesenjangan</span>
+                                        <p class="text-sm text-gray-600">Memperkecil jurang antara si kaya dan si miskin</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start p-3 bg-white rounded-lg">
+                                    <i class="fas fa-hands-helping text-xl mr-3 text-teal-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-medium">Membantu yang Membutuhkan</span>
+                                        <p class="text-sm text-gray-600">Meringankan beban fakir miskin</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start p-3 bg-white rounded-lg">
+                                    <i class="fas fa-users text-xl mr-3 text-indigo-500 mt-1"></i>
+                                    <div>
+                                        <span class="font-medium">Mempererat Persaudaraan</span>
+                                        <p class="text-sm text-gray-600">Menguatkan ikatan sosial antar muslim</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start p-3 bg-white rounded-lg">
+                                    <i class="fas fa-seedling text-xl mr-3 text-green-600 mt-1"></i>
+                                    <div>
+                                        <span class="font-medium">Pembangunan Umat</span>
+                                        <p class="text-sm text-gray-600">Memajukan pendidikan dan dakwah Islam</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-yellow-100 rounded-lg">
+                        <h4 class="font-semibold text-yellow-800 mb-2">
+                            <i class="fas fa-book mr-2"></i>Dalil Al-Quran:
+                        </h4>
+                        <p class="arabic-text text-yellow-900 mb-2">مَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنبُلَةٍ مِائَةُ حَبَّةٍ</p>
+                        <p class="text-yellow-700 italic">"Perumpamaan orang yang menginfakkan hartanya di jalan Allah seperti sebutir biji yang menumbuhkan tujuh tangkai, pada setiap tangkai ada seratus biji" (QS. Al-Baqarah: 261)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Section -->
+        <section id="game" class="section-content hidden">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-3xl font-bold text-center mb-8 text-purple-700">
+                    <i class="fas fa-gamepad mr-3"></i>Game Ketentuan Infak
+                </h2>
+                
+                <div id="gameMenu" class="text-center">
+                    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                        <div class="card-hover bg-gradient-to-br from-blue-500 to-blue-600 text-white p-8 rounded-xl cursor-pointer" onclick="startGame('drag-drop')">
+                            <i class="fas fa-bullseye text-6xl mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Drag & Drop</h3>
+                            <p>Cocokkan syarat, rukun, dan jenis infak</p>
+                        </div>
+                        <div class="card-hover bg-gradient-to-br from-green-500 to-green-600 text-white p-8 rounded-xl cursor-pointer" onclick="startGame('memory')">
+                            <i class="fas fa-brain text-6xl mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Memory Game</h3>
+                            <p>Ingat dan cocokkan kartu ketentuan infak</p>
+                        </div>
+                        <div class="card-hover bg-gradient-to-br from-red-500 to-red-600 text-white p-8 rounded-xl cursor-pointer" onclick="startGame('quiz-game')">
+                            <i class="fas fa-question-circle text-6xl mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">Quick Quiz</h3>
+                            <p>Jawab pertanyaan dengan cepat!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drag & Drop Game -->
+                <div id="dragDropGame" class="hidden">
+                    <div class="mb-6">
+                        <button onclick="backToGameMenu()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">
+                            <i class="fas fa-arrow-left mr-2"></i>Kembali
+                        </button>
+                        <div class="text-center mt-4">
+                            <h3 class="text-xl font-bold mb-2">
+                                <i class="fas fa-bullseye mr-2"></i>Drag & Drop Game
+                            </h3>
+                            <p class="text-gray-600">Seret item ke kategori yang tepat!</p>
+                            <div class="mt-2 flex justify-center space-x-4">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
+                                    <i class="fas fa-star mr-1"></i>Skor: <span id="dragScore">0</span>
+                                </span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full">
+                                    <i class="fas fa-check mr-1"></i>Benar: <span id="dragCorrect">0</span>
+                                </span>
+                                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full">
+                                    <i class="fas fa-times mr-1"></i>Salah: <span id="dragWrong">0</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Items to drag -->
+                        <div>
+                            <h4 class="font-bold mb-4 text-center">
+                                <i class="fas fa-box mr-2"></i>Seret Item Ini:
+                            </h4>
+                            <div id="dragItems" class="space-y-3">
+                                <!-- Items will be generated dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Drop zones -->
+                        <div>
+                            <h4 class="font-bold mb-4 text-center">
+                                <i class="fas fa-bullseye mr-2"></i>Letakkan di Kategori:
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="drop-zone bg-blue-100 border-2 border-dashed border-blue-400 p-6 rounded-lg min-h-[120px]" data-category="syarat">
+                                    <h5 class="font-semibold text-blue-700 mb-2">
+                                        <i class="fas fa-check-circle mr-2"></i>Syarat Wajib
+                                    </h5>
+                                    <div class="dropped-items space-y-2"></div>
+                                </div>
+                                <div class="drop-zone bg-green-100 border-2 border-dashed border-green-400 p-6 rounded-lg min-h-[120px]" data-category="jenis">
+                                    <h5 class="font-semibold text-green-700 mb-2">
+                                        <i class="fas fa-seedling mr-2"></i>Jenis Zakat
+                                    </h5>
+                                    <div class="dropped-items space-y-2"></div>
+                                </div>
+                                <div class="drop-zone bg-purple-100 border-2 border-dashed border-purple-400 p-6 rounded-lg min-h-[120px]" data-category="penerima">
+                                    <h5 class="font-semibold text-purple-700 mb-2">
+                                        <i class="fas fa-hands-helping mr-2"></i>Penerima Zakat
+                                    </h5>
+                                    <div class="dropped-items space-y-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memory Game -->
+                <div id="memoryGame" class="hidden">
+                    <div class="mb-6">
+                        <button onclick="backToGameMenu()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">
+                            <i class="fas fa-arrow-left mr-2"></i>Kembali
+                        </button>
+                        <div class="text-center mt-4">
+                            <h3 class="text-xl font-bold mb-2">
+                                <i class="fas fa-brain mr-2 text-purple-600"></i>Memory Game Zakat Fitrah
+                            </h3>
+                            <p class="text-gray-600">Temukan dan cocokkan pasangan kartu yang berhubungan dengan zakat fitrah!</p>
+                            <div class="mt-4 flex justify-center space-x-4">
+                                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-semibold">
+                                    <i class="fas fa-star mr-1"></i>Skor: <span id="memoryScore">0</span>
+                                </span>
+                                <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold">
+                                    <i class="fas fa-puzzle-piece mr-1"></i>Pasangan: <span id="memoryPairs">0</span>/8
+                                </span>
+                                <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full font-semibold">
+                                    <i class="fas fa-mouse-pointer mr-1"></i>Klik: <span id="memoryClicks">0</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memory Game Instructions -->
+                    <div class="mb-6 bg-purple-50 p-4 rounded-lg border border-purple-200 max-w-2xl mx-auto">
+                        <h4 class="font-semibold text-purple-800 mb-2">
+                            <i class="fas fa-info-circle mr-2"></i>Cara Bermain:
+                        </h4>
+                        <ul class="text-purple-700 text-sm space-y-1">
+                            <li>• Klik kartu untuk membuka dan melihat isinya</li>
+                            <li>• Cari pasangan yang cocok (contoh: ikon masjid dengan kata "Islam")</li>
+                            <li>• Jika cocok, kartu akan berubah hijau dan tetap terbuka</li>
+                            <li>• Jika tidak cocok, kartu akan tertutup kembali</li>
+                            <li>• Selesaikan semua 8 pasangan dengan klik sesedikit mungkin!</li>
+                        </ul>
+                    </div>
+
+                    <div id="memoryBoard" class="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
+                        <!-- Memory cards will be generated here -->
+                    </div>
+
+                    <!-- Memory Game Legend -->
+                    <div class="mt-6 bg-gray-50 p-4 rounded-lg max-w-2xl mx-auto">
+                        <h4 class="font-semibold text-gray-800 mb-3 text-center">
+                            <i class="fas fa-list mr-2"></i>Pasangan yang Harus Dicari:
+                        </h4>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-mosque text-green-600"></i>
+                                <span>↔ Islam</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-seedling text-green-600"></i>
+                                <span>↔ Beras</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-hand-holding-heart text-green-600"></i>
+                                <span>↔ Fakir</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-coins text-green-600"></i>
+                                <span>↔ Mampu</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-crescent-moon text-green-600"></i>
+                                <span>↔ Ramadan</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-clock text-green-600"></i>
+                                <span>↔ Waktu</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-users-cog text-green-600"></i>
+                                <span>↔ Amil</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-heart text-green-600"></i>
+                                <span>↔ Muallaf</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Quiz Game -->
+                <div id="quizGame" class="hidden">
+                    <div class="mb-6">
+                        <button onclick="backToGameMenu()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">
+                            <i class="fas fa-arrow-left mr-2"></i>Kembali
+                        </button>
+                        <div class="text-center mt-4">
+                            <h3 class="text-xl font-bold mb-2">
+                                <i class="fas fa-bolt mr-2 text-yellow-500"></i>Quick Quiz Challenge
+                            </h3>
+                            <p class="text-gray-600">Jawab 10 pertanyaan secepat mungkin! Semakin cepat, semakin tinggi skormu!</p>
+                            <div class="mt-4 flex justify-center space-x-4">
+                                <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-semibold">
+                                    <i class="fas fa-star mr-1"></i>Skor: <span id="quickScore">0</span>
+                                </span>
+                                <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold">
+                                    <i class="fas fa-question mr-1"></i>Soal: <span id="quickCurrent">1</span>/10
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="max-w-3xl mx-auto">
+                        <!-- Timer Bar -->
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium text-gray-600">Waktu Tersisa:</span>
+                                <span id="quickTimerDisplay" class="text-lg font-bold text-red-600">30s</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                                <div id="quickTimerBar" class="h-full bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 rounded-full transition-all duration-1000 ease-linear" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-blue-200">
+                            <h3 id="quickQuestion" class="text-xl font-semibold mb-6 text-gray-800"></h3>
+                            <div id="quickOptions" class="space-y-4">
+                                <!-- Quick quiz options will be generated here -->
+                            </div>
+                        </div>
+
+                        <!-- Quick Quiz Instructions -->
+                        <div id="quickInstructions" class="mt-6 bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                            <h4 class="font-semibold text-yellow-800 mb-2">
+                                <i class="fas fa-lightbulb mr-2"></i>Cara Bermain:
+                            </h4>
+                            <ul class="text-yellow-700 text-sm space-y-1">
+                                <li>• Jawab setiap soal dalam waktu 30 detik</li>
+                                <li>• Skor = 10 poin + bonus waktu (sisa detik × 2)</li>
+                                <li>• Jawaban salah atau waktu habis = 0 poin</li>
+                                <li>• Semakin cepat menjawab, semakin tinggi bonus!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Evaluasi Section -->
+        <section id="evaluasi" class="section-content hidden">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-3xl font-bold text-center mb-8 text-orange-700">
+                    <i class="fas fa-clipboard-check mr-3"></i>Evaluasi Pembelajaran
+                </h2>
+                
+                <div id="quizStart" class="text-center">
+                    <div class="bg-gradient-to-br from-orange-100 to-red-100 p-8 rounded-xl max-w-2xl mx-auto">
+                        <i class="fas fa-clipboard-list text-6xl mb-4 text-orange-600"></i>
+                        <h3 class="text-2xl font-bold mb-4 text-orange-800">Kuis Ketentuan Infak</h3>
+                        <p class="text-gray-700 mb-6">Uji pemahamanmu tentang ketentuan infak dengan 20 soal pilihan ganda!</p>
+                        <div class="mb-6 p-4 bg-yellow-100 rounded-lg">
+                            <p class="text-yellow-800 font-semibold">
+                                <i class="fas fa-info-circle mr-2"></i>Kriteria Penilaian:
+                            </p>
+                            <div class="mt-2 space-y-1">
+                                <p class="text-yellow-700">
+                                    <i class="fas fa-check-circle mr-2 text-green-600"></i>≥ 70% (14 soal) = TUNTAS
+                                </p>
+                                <p class="text-yellow-700">
+                                    <i class="fas fa-times-circle mr-2 text-red-600"></i>< 70% (< 14 soal) = BELUM TUNTAS
+                                </p>
+                            </div>
+                        </div>
+                        <button onclick="startQuiz()" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-play mr-2"></i>Mulai Kuis
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quizContent" class="hidden">
+                    <div class="mb-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg font-semibold">
+                                <i class="fas fa-question-circle mr-2"></i>Soal <span id="currentQuestion">1</span> dari 20
+                            </span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
+                                <i class="fas fa-star mr-1"></i>Skor: <span id="quizScore">0</span>
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div id="progressBar" class="progress-bar bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full" style="width: 5%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl mb-6">
+                        <h3 id="questionText" class="text-lg font-semibold mb-4"></h3>
+                        <div id="answerOptions" class="space-y-3">
+                            <!-- Answer options will be generated here -->
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button id="nextButton" onclick="nextQuestion()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hidden">
+                            <i class="fas fa-arrow-right mr-2"></i>Soal Berikutnya
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quizResult" class="hidden text-center">
+                    <div id="resultCard" class="p-8 rounded-xl max-w-2xl mx-auto">
+                        <i id="resultIcon" class="text-6xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-4" id="resultTitle">Kuis Selesai!</h3>
+                        <div class="text-lg mb-6">
+                            <p>Skor Akhir: <span id="finalScore" class="font-bold text-2xl">0</span>/20</p>
+                            <p>Persentase: <span id="finalPercentage" class="font-bold text-2xl">0</span>%</p>
+                            <div id="resultStatus" class="mt-4 p-4 rounded-lg font-bold text-xl"></div>
+                            <p id="resultMessage" class="text-gray-700 mt-4"></p>
+                        </div>
+                        <div class="space-x-4">
+                            <button onclick="restartQuiz()" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                                <i class="fas fa-redo mr-2"></i>Ulangi Kuis
+                            </button>
+                            <button onclick="showSection('materi')" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                                <i class="fas fa-book mr-2"></i>Pelajari Lagi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-6 mt-12">
+        <p><i class="fas fa-copyright mr-2"></i>2024 Media Pembelajaran Ketentuan Infak - Fikih Kelas 5 MI</p>
+    </footer>
+
+    <script>
+        // Global variables
+        let currentSection = 'materi';
+        let dragScore = 0;
+        let dragCorrect = 0;
+        let dragWrong = 0;
+        let memoryScore = 0;
+        let memoryPairs = 0;
+        let memoryClicks = 0;
+        let flippedCards = [];
+        let matchedPairs = [];
+        let quickScore = 0;
+        let quickCurrent = 1;
+        let quickTimer = 30;
+        let quickTimerInterval;
+        let quizScore = 0;
+        let currentQuestionIndex = 0;
+        let selectedAnswer = null;
+
+        // Drag and drop items
+        const dragDropItems = [
+            { text: "Beragama Islam", category: "syarat", icon: "fas fa-mosque" },
+            { text: "Beras", category: "jenis", icon: "fas fa-seedling" },
+            { text: "Fakir", category: "penerima", icon: "fas fa-hand-holding-heart" },
+            { text: "Mampu (tidak fakir)", category: "syarat", icon: "fas fa-coins" },
+            { text: "Miskin", category: "penerima", icon: "fas fa-user-injured" },
+            { text: "Jagung", category: "jenis", icon: "fas fa-corn" },
+            { text: "Hidup saat Ramadan", category: "syarat", icon: "fas fa-crescent-moon" },
+            { text: "Amil Zakat", category: "penerima", icon: "fas fa-users-cog" },
+            { text: "Gandum", category: "jenis", icon: "fas fa-bread-slice" },
+            { text: "Merdeka (bukan budak)", category: "syarat", icon: "fas fa-user-check" },
+            { text: "Muallaf", category: "penerima", icon: "fas fa-heart" },
+            { text: "Kurma", category: "jenis", icon: "fas fa-apple-alt" }
+        ];
+
+        // Quiz questions
+        const quizQuestions = [
+            {
+                question: "Apa pengertian zakat fitrah?",
+                options: ["Zakat yang dibayar setiap bulan", "Zakat yang wajib dikeluarkan pada bulan Ramadan sebelum shalat Idul Fitri", "Zakat yang dibayar saat panen", "Zakat yang dibayar saat mendapat rezeki"],
+                correct: 1
+            },
+            {
+                question: "Hukum zakat fitrah adalah...",
+                options: ["Sunnah", "Wajib", "Mubah", "Makruh"],
+                correct: 1
+            },
+            {
+                question: "Siapa yang wajib membayar zakat fitrah?",
+                options: ["Hanya orang kaya", "Setiap muslim yang mampu", "Hanya laki-laki dewasa", "Hanya kepala keluarga"],
+                correct: 1
+            },
+            {
+                question: "Berapa kadar zakat fitrah yang harus dibayarkan?",
+                options: ["1 sha' (sekitar 2,5 kg)", "2 sha' (sekitar 5 kg)", "0,5 sha' (sekitar 1,25 kg)", "3 sha' (sekitar 7,5 kg)"],
+                correct: 0
+            },
+            {
+                question: "Kapan waktu terbaik membayar zakat fitrah?",
+                options: ["Awal bulan Ramadan", "Pertengahan Ramadan", "Setelah Maghrib 30 Ramadan sampai sebelum shalat Idul Fitri", "Setelah shalat Idul Fitri"],
+                correct: 2
+            },
+            {
+                question: "Apa yang terjadi jika zakat fitrah dibayar setelah shalat Idul Fitri?",
+                options: ["Tidak sah", "Sah tapi berdosa karena terlambat", "Tidak perlu dibayar lagi", "Harus dibayar dua kali lipat"],
+                correct: 1
+            },
+            {
+                question: "Salah satu syarat wajib zakat fitrah adalah...",
+                options: ["Berusia minimal 40 tahun", "Memiliki emas 20 dinar", "Beragama Islam", "Memiliki tanah"],
+                correct: 2
+            },
+            {
+                question: "Zakat fitrah dapat dibayar dengan...",
+                options: ["Hanya beras", "Hanya uang", "Makanan pokok atau uang senilainya", "Hanya emas"],
+                correct: 2
+            },
+            {
+                question: "Siapa yang termasuk penerima zakat fitrah?",
+                options: ["Hanya fakir miskin", "8 golongan asnaf", "Hanya tetangga", "Siapa saja"],
+                correct: 1
+            },
+            {
+                question: "Apa tujuan utama zakat fitrah?",
+                options: ["Mengurangi harta", "Mensucikan diri dan membantu fakir miskin", "Menunjukkan kekayaan", "Tradisi turun temurun"],
+                correct: 1
+            },
+            {
+                question: "Fakir dan miskin termasuk golongan penerima zakat yang ke...",
+                options: ["1 dan 2", "3 dan 4", "5 dan 6", "7 dan 8"],
+                correct: 0
+            },
+            {
+                question: "Amil zakat adalah...",
+                options: ["Orang yang membayar zakat", "Orang yang mengumpulkan dan membagikan zakat", "Orang yang menerima zakat", "Orang yang menghitung zakat"],
+                correct: 1
+            },
+            {
+                question: "Muallaf adalah...",
+                options: ["Orang yang baru masuk Islam", "Orang yang berhutang", "Orang yang bepergian", "Orang yang berperang"],
+                correct: 0
+            },
+            {
+                question: "Fi sabilillah artinya...",
+                options: ["Orang yang berhutang", "Di jalan Allah", "Orang yang bepergian", "Orang miskin"],
+                correct: 1
+            },
+            {
+                question: "Ibnu sabil adalah...",
+                options: ["Anak yatim", "Orang yang bepergian dan kehabisan bekal", "Orang yang berhutang", "Orang yang berperang"],
+                correct: 1
+            },
+            {
+                question: "Zakat fitrah wajib dikeluarkan untuk...",
+                options: ["Diri sendiri saja", "Diri sendiri dan keluarga yang menjadi tanggungan", "Hanya anak-anak", "Hanya orang dewasa"],
+                correct: 1
+            },
+            {
+                question: "Jika seseorang tidak mampu membayar zakat fitrah, maka...",
+                options: ["Tetap wajib membayar", "Tidak wajib membayar", "Harus berhutang untuk membayar", "Diganti dengan puasa"],
+                correct: 1
+            },
+            {
+                question: "Zakat fitrah sebaiknya diberikan kepada...",
+                options: ["Orang kaya", "Fakir miskin di sekitar tempat tinggal", "Pemerintah", "Masjid"],
+                correct: 1
+            },
+            {
+                question: "Dalil kewajiban zakat fitrah terdapat dalam...",
+                options: ["Al-Quran saja", "Hadits saja", "Al-Quran dan Hadits", "Ijma ulama"],
+                correct: 2
+            },
+            {
+                question: "Hikmah zakat fitrah adalah...",
+                options: ["Mensucikan jiwa dan membantu sesama", "Mengurangi harta", "Menunjukkan kemampuan", "Semua jawaban benar"],
+                correct: 0
+            }
+        ];
+
+        // Quick quiz questions (subset of main quiz) - will be shuffled
+        let quickQuizQuestions = [];
+        let shuffledQuizQuestions = [];
+
+        // Memory game cards
+        const memoryCards = [
+            { id: 1, content: '<i class="fas fa-mosque text-2xl"></i>', pair: "Islam", text: "Islam" },
+            { id: 2, content: "Islam", pair: '<i class="fas fa-mosque text-2xl"></i>', text: '<i class="fas fa-mosque text-2xl"></i>' },
+            { id: 3, content: '<i class="fas fa-seedling text-2xl"></i>', pair: "Beras", text: "Beras" },
+            { id: 4, content: "Beras", pair: '<i class="fas fa-seedling text-2xl"></i>', text: '<i class="fas fa-seedling text-2xl"></i>' },
+            { id: 5, content: '<i class="fas fa-hand-holding-heart text-2xl"></i>', pair: "Fakir", text: "Fakir" },
+            { id: 6, content: "Fakir", pair: '<i class="fas fa-hand-holding-heart text-2xl"></i>', text: '<i class="fas fa-hand-holding-heart text-2xl"></i>' },
+            { id: 7, content: '<i class="fas fa-coins text-2xl"></i>', pair: "Mampu", text: "Mampu" },
+            { id: 8, content: "Mampu", pair: '<i class="fas fa-coins text-2xl"></i>', text: '<i class="fas fa-coins text-2xl"></i>' },
+            { id: 9, content: '<i class="fas fa-crescent-moon text-2xl"></i>', pair: "Ramadan", text: "Ramadan" },
+            { id: 10, content: "Ramadan", pair: '<i class="fas fa-crescent-moon text-2xl"></i>', text: '<i class="fas fa-crescent-moon text-2xl"></i>' },
+            { id: 11, content: '<i class="fas fa-clock text-2xl"></i>', pair: "Waktu", text: "Waktu" },
+            { id: 12, content: "Waktu", pair: '<i class="fas fa-clock text-2xl"></i>', text: '<i class="fas fa-clock text-2xl"></i>' },
+            { id: 13, content: '<i class="fas fa-users-cog text-2xl"></i>', pair: "Amil", text: "Amil" },
+            { id: 14, content: "Amil", pair: '<i class="fas fa-users-cog text-2xl"></i>', text: '<i class="fas fa-users-cog text-2xl"></i>' },
+            { id: 15, content: '<i class="fas fa-heart text-2xl"></i>', pair: "Muallaf", text: "Muallaf" },
+            { id: 16, content: "Muallaf", pair: '<i class="fas fa-heart text-2xl"></i>', text: '<i class="fas fa-heart text-2xl"></i>' }
+        ];
+
+        // Shuffle functions
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        function shuffleQuestionOptions(question) {
+            const correctAnswer = question.options[question.correct];
+            const shuffledOptions = shuffleArray(question.options);
+            const newCorrectIndex = shuffledOptions.indexOf(correctAnswer);
+            
+            return {
+                ...question,
+                options: shuffledOptions,
+                correct: newCorrectIndex
+            };
+        }
+
+        function prepareQuizQuestions() {
+            // Shuffle all questions and take first 10 for quick quiz
+            const allShuffled = shuffleArray(quizQuestions);
+            quickQuizQuestions = allShuffled.slice(0, 10).map(shuffleQuestionOptions);
+            
+            // Shuffle all questions for main quiz
+            shuffledQuizQuestions = shuffleArray(quizQuestions).map(shuffleQuestionOptions);
+        }
+
+        // Navigation functions
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(s => s.classList.add('hidden'));
+            
+            // Show selected section
+            document.getElementById(section).classList.remove('hidden');
+            document.getElementById(section).classList.add('slide-enter');
+            
+            // Update navigation buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'bg-purple-600', 'bg-orange-600');
+                btn.classList.add('bg-blue-500', 'bg-purple-500', 'bg-orange-500');
+            });
+            
+            currentSection = section;
+        }
+
+        // Game functions
+        function startGame(gameType) {
+            document.getElementById('gameMenu').classList.add('hidden');
+            
+            if (gameType === 'drag-drop') {
+                document.getElementById('dragDropGame').classList.remove('hidden');
+                initDragDrop();
+            } else if (gameType === 'memory') {
+                document.getElementById('memoryGame').classList.remove('hidden');
+                initMemoryGame();
+            } else if (gameType === 'quiz-game') {
+                document.getElementById('quizGame').classList.remove('hidden');
+                initQuickQuiz();
+            }
+        }
+
+        function backToGameMenu() {
+            document.getElementById('gameMenu').classList.remove('hidden');
+            document.getElementById('dragDropGame').classList.add('hidden');
+            document.getElementById('memoryGame').classList.add('hidden');
+            document.getElementById('quizGame').classList.add('hidden');
+            
+            // Reset games
+            resetDragDrop();
+            resetMemoryGame();
+            resetQuickQuiz();
+        }
+
+        // Drag and Drop Game
+        function initDragDrop() {
+            resetDragDrop();
+            const dragItemsContainer = document.getElementById('dragItems');
+            dragItemsContainer.innerHTML = '';
+            
+            // Shuffle items
+            const shuffledItems = [...dragDropItems].sort(() => Math.random() - 0.5);
+            
+            shuffledItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'drag-item bg-yellow-200 p-3 rounded-lg cursor-move border-2 border-dashed border-yellow-400 transition-all duration-300 hover:bg-yellow-300';
+                itemElement.draggable = true;
+                itemElement.dataset.category = item.category;
+                itemElement.innerHTML = `<i class="${item.icon} mr-2"></i>${item.text}`;
+                itemElement.addEventListener('dragstart', handleDragStart);
+                dragItemsContainer.appendChild(itemElement);
+            });
+
+            const dropZones = document.querySelectorAll('.drop-zone');
+            dropZones.forEach(zone => {
+                zone.addEventListener('dragover', handleDragOver);
+                zone.addEventListener('drop', handleDrop);
+                // Clear previous items
+                zone.querySelector('.dropped-items').innerHTML = '';
+            });
+        }
+
+        function resetDragDrop() {
+            dragScore = 0;
+            dragCorrect = 0;
+            dragWrong = 0;
+            document.getElementById('dragScore').textContent = '0';
+            document.getElementById('dragCorrect').textContent = '0';
+            document.getElementById('dragWrong').textContent = '0';
+        }
+
+        function handleDragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.dataset.category);
+            e.dataTransfer.setData('text/html', e.target.outerHTML);
+            e.target.style.opacity = '0.5';
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.currentTarget.classList.add('border-solid', 'bg-opacity-75');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            const draggedCategory = e.dataTransfer.getData('text/plain');
+            const draggedHTML = e.dataTransfer.getData('text/html');
+            const dropZone = e.currentTarget;
+            
+            dropZone.classList.remove('border-solid', 'bg-opacity-75');
+            
+            if (draggedCategory === dropZone.dataset.category) {
+                // Correct drop
+                const droppedItems = dropZone.querySelector('.dropped-items');
+                const newItem = document.createElement('div');
+                newItem.innerHTML = draggedHTML;
+                const itemElement = newItem.firstChild;
+                itemElement.classList.remove('cursor-move', 'border-dashed', 'bg-yellow-200', 'hover:bg-yellow-300');
+                itemElement.classList.add('bg-green-200', 'border-green-400', 'border-solid');
+                itemElement.draggable = false;
+                itemElement.style.opacity = '1';
+                droppedItems.appendChild(itemElement);
+                
+                // Remove original item
+                const originalItems = document.querySelectorAll('#dragItems .drag-item');
+                originalItems.forEach(item => {
+                    if (item.dataset.category === draggedCategory && item.innerHTML === itemElement.innerHTML) {
+                        item.remove();
+                        return;
+                    }
+                });
+                
+                dragScore += 15;
+                dragCorrect++;
+                document.getElementById('dragScore').textContent = dragScore;
+                document.getElementById('dragCorrect').textContent = dragCorrect;
+                
+                // Success animation
+                itemElement.classList.add('celebration');
+                setTimeout(() => itemElement.classList.remove('celebration'), 1000);
+                
+                // Check if game is complete
+                if (document.querySelectorAll('#dragItems .drag-item').length === 0) {
+                    setTimeout(() => {
+                        const accuracy = Math.round((dragCorrect / (dragCorrect + dragWrong)) * 100);
+                        alert(`🎉 Selamat! Game selesai!\n\nSkor: ${dragScore}\nBenar: ${dragCorrect}\nSalah: ${dragWrong}\nAkurasi: ${accuracy}%`);
+                    }, 500);
+                }
+            } else {
+                // Wrong drop
+                dragWrong++;
+                document.getElementById('dragWrong').textContent = dragWrong;
+                
+                // Error animation
+                dropZone.style.backgroundColor = '#fee2e2';
+                dropZone.classList.add('animate-pulse');
+                setTimeout(() => {
+                    dropZone.style.backgroundColor = '';
+                    dropZone.classList.remove('animate-pulse');
+                }, 1000);
+                
+                // Reset dragged item opacity
+                const originalItems = document.querySelectorAll('#dragItems .drag-item');
+                originalItems.forEach(item => {
+                    item.style.opacity = '1';
+                });
+            }
+        }
+
+        // Memory Game
+        function initMemoryGame() {
+            resetMemoryGame();
+            const board = document.getElementById('memoryBoard');
+            board.innerHTML = '';
+            
+            // Shuffle cards
+            const shuffledCards = [...memoryCards].sort(() => Math.random() - 0.5);
+            
+            shuffledCards.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'game-card relative h-24 cursor-pointer';
+                cardElement.dataset.id = card.id;
+                cardElement.dataset.content = card.content;
+                cardElement.dataset.pair = card.pair;
+                cardElement.dataset.text = card.text;
+                
+                cardElement.innerHTML = `
+                    <div class="game-card-inner relative w-full h-full">
+                        <div class="game-card-front absolute inset-0 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold text-lg card-hover">
+                            <i class="fas fa-question text-2xl"></i>
+                        </div>
+                        <div class="game-card-back absolute inset-0 bg-yellow-500 text-white rounded-lg flex items-center justify-center font-bold text-lg">
+                            ${card.content}
+                        </div>
+                    </div>
+                `;
+                
+                cardElement.addEventListener('click', flipCard);
+                board.appendChild(cardElement);
+            });
+            
+            flippedCards = [];
+            matchedPairs = [];
+        }
+
+        function resetMemoryGame() {
+            memoryScore = 0;
+            memoryPairs = 0;
+            memoryClicks = 0;
+            document.getElementById('memoryScore').textContent = '0';
+            document.getElementById('memoryPairs').textContent = '0';
+            document.getElementById('memoryClicks').textContent = '0';
+        }
+
+        function flipCard(e) {
+            const card = e.currentTarget;
+            
+            if (flippedCards.length < 2 && !card.classList.contains('flipped') && !matchedPairs.includes(card.dataset.id)) {
+                card.classList.add('flipped');
+                flippedCards.push(card);
+                memoryClicks++;
+                document.getElementById('memoryClicks').textContent = memoryClicks;
+                
+                if (flippedCards.length === 2) {
+                    setTimeout(checkMatch, 1000);
+                }
+            }
+        }
+
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+            
+            if (card1.dataset.pair === card2.dataset.content || card2.dataset.pair === card1.dataset.content) {
+                // Match found
+                card1.querySelector('.game-card-back').classList.add('bg-green-500');
+                card2.querySelector('.game-card-back').classList.add('bg-green-500');
+                matchedPairs.push(card1.dataset.id, card2.dataset.id);
+                
+                // Calculate score based on efficiency
+                const efficiency = Math.max(50 - memoryClicks, 10);
+                memoryScore += efficiency;
+                memoryPairs++;
+                
+                document.getElementById('memoryScore').textContent = memoryScore;
+                document.getElementById('memoryPairs').textContent = memoryPairs;
+                
+                // Success animation
+                card1.classList.add('celebration');
+                card2.classList.add('celebration');
+                setTimeout(() => {
+                    card1.classList.remove('celebration');
+                    card2.classList.remove('celebration');
+                }, 1000);
+                
+                if (memoryPairs === 8) {
+                    setTimeout(() => {
+                        const efficiency = Math.round((memoryScore / (memoryPairs * 50)) * 100);
+                        alert(`🎉 Selamat! Semua kartu berhasil dicocokkan!\n\nSkor: ${memoryScore}\nPasangan: ${memoryPairs}/8\nKlik: ${memoryClicks}\nEfisiensi: ${efficiency}%`);
+                    }, 500);
+                }
+            } else {
+                // No match
+                card1.classList.remove('flipped');
+                card2.classList.remove('flipped');
+            }
+            
+            flippedCards = [];
+        }
+
+        // Quick Quiz Game
+        function initQuickQuiz() {
+            prepareQuizQuestions(); // Shuffle questions first
+            resetQuickQuiz();
+            showQuickQuestion();
+            startQuickTimer();
+        }
+
+        function resetQuickQuiz() {
+            quickScore = 0;
+            quickCurrent = 1;
+            quickTimer = 30;
+            document.getElementById('quickScore').textContent = '0';
+            document.getElementById('quickCurrent').textContent = '1';
+            document.getElementById('quickTimerDisplay').textContent = '30s';
+            document.getElementById('quickTimerBar').style.width = '100%';
+            if (quickTimerInterval) clearInterval(quickTimerInterval);
+        }
+
+        function startQuickTimer() {
+            quickTimer = 30;
+            document.getElementById('quickTimerDisplay').textContent = '30s';
+            document.getElementById('quickTimerBar').style.width = '100%';
+            
+            quickTimerInterval = setInterval(() => {
+                quickTimer--;
+                document.getElementById('quickTimerDisplay').textContent = quickTimer + 's';
+                
+                // Update timer bar
+                const percentage = (quickTimer / 30) * 100;
+                document.getElementById('quickTimerBar').style.width = percentage + '%';
+                
+                // Change color based on time remaining
+                const timerBar = document.getElementById('quickTimerBar');
+                if (quickTimer <= 10) {
+                    timerBar.className = 'h-full bg-red-500 rounded-full transition-all duration-1000 ease-linear';
+                } else if (quickTimer <= 20) {
+                    timerBar.className = 'h-full bg-yellow-500 rounded-full transition-all duration-1000 ease-linear';
+                } else {
+                    timerBar.className = 'h-full bg-green-500 rounded-full transition-all duration-1000 ease-linear';
+                }
+                
+                if (quickTimer <= 0) {
+                    // Time's up, show correct answer and move to next
+                    clearInterval(quickTimerInterval);
+                    showTimeUpAnswer();
+                }
+            }, 1000);
+        }
+
+        function showQuickQuestion() {
+            const question = quickQuizQuestions[quickCurrent - 1];
+            document.getElementById('quickQuestion').textContent = `${quickCurrent}. ${question.question}`;
+            
+            const optionsContainer = document.getElementById('quickOptions');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'quick-option w-full text-left p-4 bg-gray-50 border-2 border-gray-300 rounded-lg hover:border-blue-400 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105';
+                button.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">${String.fromCharCode(65 + index)}</span>
+                        <span class="text-gray-800">${option}</span>
+                    </div>
+                `;
+                button.onclick = () => selectQuickAnswer(index, question.correct);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function selectQuickAnswer(selected, correct) {
+            clearInterval(quickTimerInterval);
+            
+            const options = document.querySelectorAll('.quick-option');
+            options.forEach((option, index) => {
+                option.style.pointerEvents = 'none';
+                if (index === correct) {
+                    option.classList.remove('bg-gray-50', 'border-gray-300');
+                    option.classList.add('correct-answer', 'border-green-500');
+                } else if (index === selected && selected !== correct) {
+                    option.classList.remove('bg-gray-50', 'border-gray-300');
+                    option.classList.add('wrong-answer', 'border-red-500');
+                } else {
+                    option.style.opacity = '0.5';
+                }
+            });
+            
+            if (selected === correct) {
+                const timeBonus = Math.max(quickTimer * 2, 0);
+                const totalPoints = 10 + timeBonus;
+                quickScore += totalPoints;
+                
+                // Show score popup
+                const scorePopup = document.createElement('div');
+                scorePopup.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white px-6 py-3 rounded-lg font-bold text-lg z-50 animate-bounce';
+                scorePopup.innerHTML = `+${totalPoints} poin! (10 + ${timeBonus} bonus waktu)`;
+                document.body.appendChild(scorePopup);
+                setTimeout(() => scorePopup.remove(), 1500);
+            } else {
+                // Show wrong answer popup
+                const wrongPopup = document.createElement('div');
+                wrongPopup.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-500 text-white px-6 py-3 rounded-lg font-bold text-lg z-50';
+                wrongPopup.innerHTML = '0 poin - Jawaban Salah!';
+                document.body.appendChild(wrongPopup);
+                setTimeout(() => wrongPopup.remove(), 1500);
+            }
+            
+            document.getElementById('quickScore').textContent = quickScore;
+            
+            setTimeout(() => {
+                nextQuickQuestion();
+            }, 2000);
+        }
+
+        function showTimeUpAnswer() {
+            const question = quickQuizQuestions[quickCurrent - 1];
+            const options = document.querySelectorAll('.quick-option');
+            
+            options.forEach((option, index) => {
+                option.style.pointerEvents = 'none';
+                if (index === question.correct) {
+                    option.classList.remove('bg-gray-50', 'border-gray-300');
+                    option.classList.add('bg-green-200', 'border-green-500');
+                } else {
+                    option.style.opacity = '0.5';
+                }
+            });
+            
+            // Show time up popup
+            const timeUpPopup = document.createElement('div');
+            timeUpPopup.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-orange-500 text-white px-6 py-3 rounded-lg font-bold text-lg z-50';
+            timeUpPopup.innerHTML = '⏰ Waktu Habis! 0 poin';
+            document.body.appendChild(timeUpPopup);
+            setTimeout(() => timeUpPopup.remove(), 1500);
+            
+            setTimeout(() => {
+                nextQuickQuestion();
+            }, 2000);
+        }
+
+        function nextQuickQuestion() {
+            if (quickCurrent >= quickQuizQuestions.length) {
+                endQuickQuiz();
+                return;
+            }
+            
+            quickCurrent++;
+            document.getElementById('quickCurrent').textContent = quickCurrent;
+            showQuickQuestion();
+            startQuickTimer();
+        }
+
+        function endQuickQuiz() {
+            clearInterval(quickTimerInterval);
+            
+            // Hide question content and show celebration
+            document.getElementById('quickQuestion').style.display = 'none';
+            document.getElementById('quickOptions').style.display = 'none';
+            document.getElementById('quickInstructions').style.display = 'none';
+            
+            const maxScore = quickQuizQuestions.length * 70; // 10 base + 60 max time bonus
+            const percentage = Math.round((quickScore / maxScore) * 100);
+            
+            let message = '';
+            let emoji = '';
+            let bgColor = '';
+            
+            if (percentage >= 80) {
+                message = '🌟 Luar Biasa! Kamu sangat cepat dan akurat!';
+                emoji = '🏆';
+                bgColor = 'from-yellow-400 to-orange-500';
+            } else if (percentage >= 60) {
+                message = '👏 Bagus! Kecepatan dan akurasi yang baik!';
+                emoji = '🥈';
+                bgColor = 'from-blue-400 to-purple-500';
+            } else if (percentage >= 40) {
+                message = '👍 Cukup baik! Terus berlatih untuk lebih cepat!';
+                emoji = '🥉';
+                bgColor = 'from-green-400 to-teal-500';
+            } else {
+                message = '💪 Semangat! Pelajari lagi materinya dan coba lagi!';
+                emoji = '📚';
+                bgColor = 'from-red-400 to-pink-500';
+            }
+            
+            // Create celebration display
+            const celebrationHTML = `
+                <div class="text-center p-8 bg-gradient-to-br ${bgColor} text-white rounded-xl shadow-2xl max-w-2xl mx-auto celebration">
+                    <div class="text-8xl mb-4 bounce-animation">${emoji}</div>
+                    <h3 class="text-3xl font-bold mb-4">Quick Quiz Challenge Selesai!</h3>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-6 mb-6">
+                        <div class="text-5xl font-bold mb-2">${quickScore}</div>
+                        <div class="text-lg">dari ${maxScore} poin maksimal</div>
+                        <div class="text-2xl font-bold mt-2">${percentage}%</div>
+                    </div>
+                    <p class="text-xl mb-6">${message}</p>
+                    <div class="space-x-4">
+                        <button onclick="initQuickQuiz()" class="bg-white text-gray-800 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-redo mr-2"></i>Main Lagi
+                        </button>
+                        <button onclick="backToGameMenu()" class="bg-black bg-opacity-30 text-white px-6 py-3 rounded-full font-bold hover:bg-opacity-50 transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-home mr-2"></i>Menu Game
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Replace timer area with celebration
+            document.querySelector('.max-w-3xl.mx-auto').innerHTML = celebrationHTML;
+        }
+
+        // Main Quiz functions
+        function startQuiz() {
+            prepareQuizQuestions(); // Shuffle questions first
+            document.getElementById('quizStart').classList.add('hidden');
+            document.getElementById('quizContent').classList.remove('hidden');
+            currentQuestionIndex = 0;
+            quizScore = 0;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = shuffledQuizQuestions[currentQuestionIndex];
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('questionText').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('answerOptions');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'answer-option w-full text-left p-4 bg-white border-2 border-gray-200 rounded-lg hover:border-blue-300 transition-all duration-300';
+                button.innerHTML = `<span class="font-semibold">${String.fromCharCode(65 + index)}.</span> ${option}`;
+                button.onclick = () => selectAnswer(index, button);
+                optionsContainer.appendChild(button);
+            });
+            
+            // Update progress bar
+            const progress = ((currentQuestionIndex + 1) / shuffledQuizQuestions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            
+            document.getElementById('nextButton').classList.add('hidden');
+            selectedAnswer = null;
+        }
+
+        function selectAnswer(answerIndex, buttonElement) {
+            if (selectedAnswer !== null) return;
+            
+            selectedAnswer = answerIndex;
+            const question = shuffledQuizQuestions[currentQuestionIndex];
+            const isCorrect = answerIndex === question.correct;
+            
+            // Disable all buttons and show correct answer
+            document.querySelectorAll('.answer-option').forEach((btn, index) => {
+                btn.style.pointerEvents = 'none';
+                if (index === question.correct) {
+                    btn.classList.add('correct-answer');
+                    btn.classList.remove('bg-white');
+                } else if (index === answerIndex && !isCorrect) {
+                    btn.classList.add('wrong-answer');
+                    btn.classList.remove('bg-white');
+                }
+            });
+            
+            if (isCorrect) {
+                quizScore++;
+                document.getElementById('quizScore').textContent = quizScore;
+            }
+            
+            setTimeout(() => {
+                document.getElementById('nextButton').classList.remove('hidden');
+            }, 1500);
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex >= shuffledQuizQuestions.length - 1) {
+                showQuizResult();
+                return;
+            }
+            
+            currentQuestionIndex++;
+            showQuestion();
+        }
+
+        function showQuizResult() {
+            document.getElementById('quizContent').classList.add('hidden');
+            document.getElementById('quizResult').classList.remove('hidden');
+            
+            const finalScore = quizScore;
+            const percentage = Math.round((finalScore / shuffledQuizQuestions.length) * 100);
+            const isTuntas = percentage >= 70;
+            
+            document.getElementById('finalScore').textContent = finalScore;
+            document.getElementById('finalPercentage').textContent = percentage;
+            
+            const resultCard = document.getElementById('resultCard');
+            const resultIcon = document.getElementById('resultIcon');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultStatus = document.getElementById('resultStatus');
+            const resultMessage = document.getElementById('resultMessage');
+            
+            if (isTuntas) {
+                resultCard.className = 'bg-gradient-to-br from-green-100 to-emerald-100 p-8 rounded-xl max-w-2xl mx-auto';
+                resultIcon.className = 'fas fa-trophy text-6xl mb-4 text-yellow-500';
+                resultTitle.className = 'text-2xl font-bold mb-4 text-green-800';
+                resultStatus.className = 'bg-green-500 text-white p-4 rounded-lg font-bold text-xl';
+                resultStatus.innerHTML = '<i class="fas fa-check-circle mr-2"></i>TUNTAS';
+                
+                if (percentage >= 90) {
+                    resultMessage.textContent = '🌟 Luar biasa! Kamu sangat memahami materi zakat fitrah!';
+                } else if (percentage >= 80) {
+                    resultMessage.textContent = '👏 Bagus sekali! Pemahaman kamu tentang zakat fitrah sudah baik!';
+                } else {
+                    resultMessage.textContent = '👍 Baik! Kamu sudah memahami materi zakat fitrah dengan cukup baik!';
+                }
+            } else {
+                resultCard.className = 'bg-gradient-to-br from-red-100 to-pink-100 p-8 rounded-xl max-w-2xl mx-auto';
+                resultIcon.className = 'fas fa-book text-6xl mb-4 text-red-500';
+                resultTitle.className = 'text-2xl font-bold mb-4 text-red-800';
+                resultStatus.className = 'bg-red-500 text-white p-4 rounded-lg font-bold text-xl';
+                resultStatus.innerHTML = '<i class="fas fa-times-circle mr-2"></i>BELUM TUNTAS';
+                resultMessage.textContent = '💪 Semangat! Pelajari lagi materi zakat fitrah untuk hasil yang lebih baik!';
+            }
+        }
+
+        function restartQuiz() {
+            document.getElementById('quizResult').classList.add('hidden');
+            document.getElementById('quizStart').classList.remove('hidden');
+            quizScore = 0;
+            document.getElementById('quizScore').textContent = '0';
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('materi');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974133c565ad9fd3',t:'MTc1NjAyMTIzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
