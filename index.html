@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Fikih Kelas 5 - MIN Singkawang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .floating-animation {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1s ease-out;
+        }
+        
+        .slide-in-up {
+            animation: slideInUp 1s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .islamic-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0f9ff' fill-opacity='0.4'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .shine-effect:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen islamic-pattern">
+    <!-- Header -->
+    <header class="hero-gradient text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div class="container mx-auto px-4 md:px-6 py-8 md:py-12 relative z-10">
+            <div class="text-center">
+                <!-- Logo -->
+                <div class="mb-6 md:mb-8 slide-in-up">
+                    <img src="https://i.imgur.com/ruwOS0c.jpg" alt="Logo MIN Singkawang" class="w-20 h-20 md:w-24 md:h-24 mx-auto rounded-full shadow-2xl border-4 border-white floating-animation">
+                </div>
+                
+                <!-- Title Section -->
+                <div class="slide-in-left px-4">
+                    <p class="text-sm md:text-lg font-medium mb-2 md:mb-3 opacity-90">Media Pembelajaran Interaktif</p>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 md:mb-4 leading-tight">
+                        FIKIH KELAS 5
+                        <br>
+                        <span class="text-yellow-300">MIN SINGKAWANG</span>
+                    </h1>
+                    <p class="text-sm md:text-lg font-medium opacity-80 slide-in-right px-2">
+                        <i class="fas fa-star mr-1 md:mr-2 text-xs md:text-base"></i>
+                        <span class="text-xs sm:text-sm md:text-lg">Madrasah Maju, Bermutu, Mendunia</span>
+                        <i class="fas fa-star ml-1 md:ml-2 text-xs md:text-base"></i>
+                    </p>
+                </div>
+                
+                <!-- Decorative Elements -->
+                <div class="mt-6 md:mt-8 flex justify-center space-x-6 md:space-x-8 slide-in-up">
+                    <div class="text-yellow-300 text-lg md:text-2xl floating-animation" style="animation-delay: 0.5s;">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <div class="text-yellow-300 text-lg md:text-2xl floating-animation" style="animation-delay: 1s;">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="text-yellow-300 text-lg md:text-2xl floating-animation" style="animation-delay: 1.5s;">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave decoration -->
+        <div class="absolute bottom-0 left-0 w-full">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-16">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#ffffff"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#ffffff"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 md:px-6 py-12 md:py-16">
+        <!-- Welcome Section -->
+        <section class="text-center mb-12 md:mb-16 slide-in-up px-4">
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold gradient-text mb-4 md:mb-6">
+                <i class="fas fa-book-reader mr-2 md:mr-3 text-lg md:text-2xl lg:text-3xl"></i>Pilih Materi Pembelajaran
+            </h2>
+            <p class="text-base md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
+                Selamat datang di media pembelajaran Fikih interaktif! Pilih salah satu materi di bawah ini untuk memulai pembelajaran yang menyenangkan dan edukatif.
+            </p>
+        </section>
+
+        <!-- Learning Materials Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto px-4 md:px-0">
+            <!-- Materi 1: Ketentuan dalam Bersedekah -->
+            <div class="card-hover bg-white rounded-2xl shadow-xl overflow-hidden shine-effect">
+                <div class="bg-gradient-to-br from-green-500 to-emerald-600 p-8 text-white relative">
+                    <div class="absolute top-4 right-4 text-6xl opacity-20">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="text-3xl md:text-5xl mb-3 md:mb-4">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-2">Ketentuan dalam Bersedekah</h3>
+                        <p class="opacity-90 text-sm md:text-base">Pelajari hukum, syarat, rukun, dan adab bersedekah</p>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <div class="space-y-3 md:space-y-4 mb-6">
+                        <div class="flex items-center text-gray-600 text-sm md:text-base">
+                            <i class="fas fa-check-circle text-green-500 mr-2 md:mr-3 text-sm md:text-base"></i>
+                            <span>Pengertian dan Hukum Sedekah</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 text-sm md:text-base">
+                            <i class="fas fa-check-circle text-green-500 mr-2 md:mr-3 text-sm md:text-base"></i>
+                            <span>Syarat dan Rukun Sedekah</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 text-sm md:text-base">
+                            <i class="fas fa-check-circle text-green-500 mr-2 md:mr-3 text-sm md:text-base"></i>
+                            <span>Adab dan Hikmah Bersedekah</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 text-sm md:text-base">
+                            <i class="fas fa-gamepad text-purple-500 mr-2 md:mr-3 text-sm md:text-base"></i>
+                            <span>Game Interaktif & Evaluasi</span>
+                        </div>
+                    </div>
+                    <button onclick="openMaterial('sedekah')" class="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-3 md:py-4 px-4 md:px-6 rounded-xl font-semibold text-base md:text-lg transition-all duration-300 transform hover:scale-105 pulse-glow">
+                        <i class="fas fa-play mr-2"></i>Mulai Belajar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Materi 2: Ketentuan dalam Berzakat -->
+            <div class="card-hover bg-white rounded-2xl shadow-xl overflow-hidden shine-effect">
+                <div class="bg-gradient-to-br from-blue-500 to-indigo-600 p-8 text-white relative">
+                    <div class="absolute top-4 right-4 text-6xl opacity-20">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="text-5xl mb-4">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Ketentuan dalam Berzakat</h3>
+                        <p class="opacity-90">Pelajari hukum, syarat, rukun, dan jenis-jenis zakat</p>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-blue-500 mr-3"></i>
+                            <span>Pengertian dan Hukum Zakat</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-blue-500 mr-3"></i>
+                            <span>Syarat dan Rukun Zakat</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-blue-500 mr-3"></i>
+                            <span>Jenis-jenis Zakat & Nisab</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-gamepad text-purple-500 mr-3"></i>
+                            <span>Game Interaktif & Evaluasi</span>
+                        </div>
+                    </div>
+                    <button onclick="openMaterial('zakat')" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 pulse-glow">
+                        <i class="fas fa-play mr-2"></i>Mulai Belajar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Materi 3: Ketentuan dalam Berinfak -->
+            <div class="card-hover bg-white rounded-2xl shadow-xl overflow-hidden shine-effect">
+                <div class="bg-gradient-to-br from-purple-500 to-pink-600 p-8 text-white relative">
+                    <div class="absolute top-4 right-4 text-6xl opacity-20">
+                        <i class="fas fa-donate"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="text-5xl mb-4">
+                            <i class="fas fa-donate"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Ketentuan dalam Berinfak</h3>
+                        <p class="opacity-90">Pelajari hukum, syarat, rukun, dan adab berinfak</p>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                            <span>Pengertian dan Hukum Infak</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                            <span>Syarat dan Rukun Infak</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-purple-500 mr-3"></i>
+                            <span>Adab dan Hikmah Berinfak</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-gamepad text-purple-500 mr-3"></i>
+                            <span>Game Interaktif & Evaluasi</span>
+                        </div>
+                    </div>
+                    <button onclick="openMaterial('infak')" class="w-full bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 pulse-glow">
+                        <i class="fas fa-play mr-2"></i>Mulai Belajar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Materi 4: Ketentuan dalam Berkurban -->
+            <div class="card-hover bg-white rounded-2xl shadow-xl overflow-hidden shine-effect">
+                <div class="bg-gradient-to-br from-orange-500 to-red-600 p-8 text-white relative">
+                    <div class="absolute top-4 right-4 text-6xl opacity-20">
+                        <i class="fas fa-sheep"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="text-5xl mb-4">
+                            <i class="fas fa-sheep"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Ketentuan dalam Berkurban</h3>
+                        <p class="opacity-90">Pelajari hukum, syarat, rukun, dan tata cara kurban</p>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-orange-500 mr-3"></i>
+                            <span>Pengertian dan Hukum Kurban</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-orange-500 mr-3"></i>
+                            <span>Syarat dan Rukun Kurban</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-check-circle text-orange-500 mr-3"></i>
+                            <span>Jenis Hewan & Tata Cara</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-gamepad text-purple-500 mr-3"></i>
+                            <span>Game Interaktif & Evaluasi</span>
+                        </div>
+                    </div>
+                    <button onclick="openMaterial('kurban')" class="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 pulse-glow">
+                        <i class="fas fa-play mr-2"></i>Mulai Belajar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="mt-20 slide-in-up">
+            <div class="bg-white rounded-3xl shadow-2xl p-12 max-w-5xl mx-auto">
+                <h3 class="text-3xl font-bold text-center gradient-text mb-12">
+                    <i class="fas fa-star mr-3"></i>Fitur Pembelajaran
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="bg-gradient-to-br from-blue-100 to-indigo-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 floating-animation">
+                            <i class="fas fa-book-open text-3xl text-blue-600"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-3 text-gray-800">Materi Lengkap</h4>
+                        <p class="text-gray-600">Materi pembelajaran yang komprehensif dengan dalil Al-Quran dan Hadits</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-gradient-to-br from-green-100 to-emerald-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 floating-animation" style="animation-delay: 0.5s;">
+                            <i class="fas fa-gamepad text-3xl text-green-600"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-3 text-gray-800">Game Interaktif</h4>
+                        <p class="text-gray-600">Berbagai permainan edukatif untuk memperkuat pemahaman materi</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-gradient-to-br from-purple-100 to-pink-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 floating-animation" style="animation-delay: 1s;">
+                            <i class="fas fa-clipboard-check text-3xl text-purple-600"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-3 text-gray-800">Evaluasi</h4>
+                        <p class="text-gray-600">Sistem evaluasi dengan feedback untuk mengukur tingkat pemahaman</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="mt-16 slide-in-up">
+            <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-6 rounded-2xl text-center card-hover">
+                    <div class="text-4xl font-bold mb-2">4</div>
+                    <div class="text-blue-100">Materi Pembelajaran</div>
+                </div>
+                <div class="bg-gradient-to-br from-green-500 to-emerald-600 text-white p-6 rounded-2xl text-center card-hover">
+                    <div class="text-4xl font-bold mb-2">12</div>
+                    <div class="text-green-100">Game Interaktif</div>
+                </div>
+                <div class="bg-gradient-to-br from-purple-500 to-pink-600 text-white p-6 rounded-2xl text-center card-hover">
+                    <div class="text-4xl font-bold mb-2">80</div>
+                    <div class="text-purple-100">Soal Evaluasi</div>
+                </div>
+                <div class="bg-gradient-to-br from-orange-500 to-red-600 text-white p-6 rounded-2xl text-center card-hover">
+                    <div class="text-4xl font-bold mb-2">100%</div>
+                    <div class="text-orange-100">Interaktif</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://i.imgur.com/ruwOS0c.jpg" alt="Logo MIN Singkawang" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">MIN Singkawang</h4>
+                            <p class="text-gray-400 text-sm">Madrasah Maju, Bermutu, Mendunia</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">Media pembelajaran interaktif untuk mata pelajaran Fikih kelas 5 yang dirancang khusus untuk meningkatkan pemahaman siswa.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Materi Pembelajaran</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-hand-holding-heart mr-2 text-green-400"></i>Ketentuan dalam Bersedekah</li>
+                        <li><i class="fas fa-coins mr-2 text-blue-400"></i>Ketentuan dalam Berzakat</li>
+                        <li><i class="fas fa-donate mr-2 text-purple-400"></i>Ketentuan dalam Berinfak</li>
+                        <li><i class="fas fa-sheep mr-2 text-orange-400"></i>Ketentuan dalam Berkurban</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Fitur Unggulan</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-book-open mr-2 text-blue-400"></i>Materi Lengkap dengan Dalil</li>
+                        <li><i class="fas fa-gamepad mr-2 text-green-400"></i>Game Edukatif Interaktif</li>
+                        <li><i class="fas fa-clipboard-check mr-2 text-purple-400"></i>Sistem Evaluasi Komprehensif</li>
+                        <li><i class="fas fa-mobile-alt mr-2 text-orange-400"></i>Responsif di Semua Perangkat</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    <i class="fas fa-copyright mr-2"></i>2025 MAHFUD SIDIK</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Material navigation function
+        function openMaterial(materialType) {
+            // Create a mapping of material types to their respective pages
+            const materialPages = {
+                'sedekah': 'sedekah.html',
+                'zakat': 'zakat.html', 
+                'infak': 'infak.html',
+                'kurban': 'kurban.html'
+            };
+            
+            // Show loading animation
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Memuat...';
+            button.disabled = true;
+            
+            // Simulate loading and redirect
+            setTimeout(() => {
+                if (materialPages[materialType]) {
+                    // In a real implementation, you would navigate to the actual page
+                    // For demo purposes, we'll show an alert
+                    alert(`Navigating to ${materialType.charAt(0).toUpperCase() + materialType.slice(1)} learning page...\n\nIn a real implementation, this would open: ${materialPages[materialType]}`);
+                    
+                    // Reset button
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                } else {
+                    alert('Materi belum tersedia!');
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }
+            }, 1500);
+        }
+
+        // Add scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.slide-in-up, .slide-in-left, .slide-in-right');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0) translateX(0)';
+                }
+            });
+        }
+
+        // Initialize animations on scroll
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add some initial delay for better UX
+            setTimeout(() => {
+                handleScrollAnimations();
+            }, 500);
+            
+            // Add click effects to cards
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Add ripple effect
+                    const ripple = document.createElement('div');
+                    ripple.className = 'absolute bg-white bg-opacity-30 rounded-full animate-ping';
+                    ripple.style.width = '20px';
+                    ripple.style.height = '20px';
+                    ripple.style.left = (e.clientX - card.getBoundingClientRect().left - 10) + 'px';
+                    ripple.style.top = (e.clientY - card.getBoundingClientRect().top - 10) + 'px';
+                    
+                    card.style.position = 'relative';
+                    card.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 1000);
+                });
+            });
+        });
+
+        // Add some interactive elements
+        document.addEventListener('mousemove', function(e) {
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px) scale(1.02)`;
+                }
+            });
+        });
+
+        // Reset card transforms when mouse leaves
+        document.addEventListener('mouseleave', function() {
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach(card => {
+                card.style.transform = '';
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97416fa77266492b',t:'MTc1NjAyMzY4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
