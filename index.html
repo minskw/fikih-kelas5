@@ -477,46 +477,12 @@
             <div class="border-t border-gray-700 mt-8 pt-8 text-center">
                 <p class="text-gray-400">
                     <i class="fas fa-copyright mr-2"></i>2025 MAHFUD SIDIK
-                    <span class="text-blue-400">Guru Kreatif, Siswa Aktif</span>
                 </p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Material navigation function
-        function openMaterial(materialType) {
-            // Create a mapping of material types to their respective pages
-            const materialPages = {
-                'sedekah': 'sedekah.html',
-                'zakat': 'zakat.html', 
-                'infak': 'infak.html',
-                'kurban': 'kurban.html'
-            };
-            
-            // Show loading animation
-            const button = event.target;
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Memuat...';
-            button.disabled = true;
-            
-            // Simulate loading and redirect
-            setTimeout(() => {
-                if (materialPages[materialType]) {
-                    // In a real implementation, you would navigate to the actual page
-                    // For demo purposes, we'll show an alert
-                    alert(`Navigating to ${materialType.charAt(0).toUpperCase() + materialType.slice(1)} learning page...\n\nIn a real implementation, this would open: ${materialPages[materialType]}`);
-                    
-                    // Reset button
-                    button.innerHTML = originalText;
-                    button.disabled = false;
-                } else {
-                    alert('Materi belum tersedia!');
-                    button.innerHTML = originalText;
-                    button.disabled = false;
-                }
-            }, 1500);
-        }
 
         // Add scroll animations
         function handleScrollAnimations() {
@@ -615,5 +581,5 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9741782991f03dad',t:'MTc1NjAyNDAzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974183f9c5199c14',t:'MTc1NjAyNDUxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
