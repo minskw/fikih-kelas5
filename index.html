@@ -105,6 +105,66 @@
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen islamic-pattern">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="https://i.imgur.com/ruwOS0c.jpg" alt="Logo MIN Singkawang" class="w-10 h-10 rounded-full mr-3">
+                    <div>
+                        <h4 class="font-bold text-gray-800 text-sm md:text-base">MIN Singkawang</h4>
+                        <p class="text-gray-500 text-xs">Fikih Kelas 5</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                        <i class="fas fa-home mr-1"></i>Beranda
+                    </a>
+                    <a href="https://minskw.github.io/fikih-kelas5/sedekah.html" class="text-gray-700 hover:text-green-600 font-medium transition-colors">
+                        <i class="fas fa-hand-holding-heart mr-1"></i>Sedekah
+                    </a>
+                    <a href="https://minskw.github.io/fikih-kelas5/zakat-fitrah.html" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                        <i class="fas fa-coins mr-1"></i>Zakat
+                    </a>
+                    <a href="https://minskw.github.io/fikih-kelas5/infak.html" class="text-gray-700 hover:text-purple-600 font-medium transition-colors">
+                        <i class="fas fa-donate mr-1"></i>Infak
+                    </a>
+                    <a href="https://minskw.github.io/fikih-kelas5/qurban.html" class="text-gray-700 hover:text-orange-600 font-medium transition-colors">
+                        <i class="fas fa-sheep mr-1"></i>Qurban
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-blue-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <div class="space-y-2">
+                    <a href="#home" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
+                        <i class="fas fa-home mr-2"></i>Beranda
+                    </a>
+                    <a href="https://minskw.github.io/fikih-kelas5/sedekah.html" class="block py-2 px-4 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">
+                        <i class="fas fa-hand-holding-heart mr-2"></i>Ketentuan dalam Bersedekah
+                    </a>
+                    <a href="https://minskw.github.io/fikih-kelas5/zakat-fitrah.html" class="block py-2 px-4 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
+                        <i class="fas fa-coins mr-2"></i>Ketentuan dalam Berzakat
+                    </a>
+                    <a href="https://minskw.github.io/fikih-kelas5/infak.html" class="block py-2 px-4 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors">
+                        <i class="fas fa-donate mr-2"></i>Ketentuan dalam Berinfak
+                    </a>
+                    <a href="https://minskw.github.io/fikih-kelas5/qurban.html" class="block py-2 px-4 text-gray-700 hover:bg-orange-50 hover:text-orange-600 rounded-lg transition-colors">
+                        <i class="fas fa-sheep mr-2"></i>Ketentuan dalam Berkurban
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <!-- Header -->
     <header class="hero-gradient text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-black bg-opacity-20"></div>
@@ -202,9 +262,9 @@
                             <span>Game Interaktif & Evaluasi</span>
                         </div>
                     </div>
-                    <button onclick="openMaterial('sedekah')" class="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-3 md:py-4 px-4 md:px-6 rounded-xl font-semibold text-base md:text-lg transition-all duration-300 transform hover:scale-105 pulse-glow">
+                    <a href="https://minskw.github.io/fikih-kelas5/sedekah.html" class="block w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-3 md:py-4 px-4 md:px-6 rounded-xl font-semibold text-base md:text-lg transition-all duration-300 transform hover:scale-105 pulse-glow text-center">
                         <i class="fas fa-play mr-2"></i>Mulai Belajar
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -241,9 +301,9 @@
                             <span>Game Interaktif & Evaluasi</span>
                         </div>
                     </div>
-                    <button onclick="openMaterial('zakat')" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 pulse-glow">
+                    <a href="https://minskw.github.io/fikih-kelas5/zakat-fitrah.html" class="block w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 pulse-glow text-center">
                         <i class="fas fa-play mr-2"></i>Mulai Belajar
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -280,9 +340,9 @@
                             <span>Game Interaktif & Evaluasi</span>
                         </div>
                     </div>
-                    <button onclick="openMaterial('infak')" class="w-full bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 pulse-glow">
+                    <a href="https://minskw.github.io/fikih-kelas5/infak.html" class="block w-full bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 pulse-glow text-center">
                         <i class="fas fa-play mr-2"></i>Mulai Belajar
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -319,9 +379,9 @@
                             <span>Game Interaktif & Evaluasi</span>
                         </div>
                     </div>
-                    <button onclick="openMaterial('kurban')" class="w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 pulse-glow">
+                    <a href="https://minskw.github.io/fikih-kelas5/qurban.html" class="block w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 pulse-glow text-center">
                         <i class="fas fa-play mr-2"></i>Mulai Belajar
-                    </button>
+                    </a>
                 </div>
             </div>
         </section>
@@ -416,7 +476,8 @@
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center">
                 <p class="text-gray-400">
-                    <i class="fas fa-copyright mr-2"></i>2025 MAHFUD SIDIK</span>
+                    <i class="fas fa-copyright mr-2"></i>2025 MAHFUD SIDIK
+                    <span class="text-blue-400">Guru Kreatif, Siswa Aktif</span>
                 </p>
             </div>
         </div>
@@ -530,6 +591,29 @@
                 card.style.transform = '';
             });
         });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.className = 'fas fa-bars text-xl';
+            } else {
+                icon.className = 'fas fa-times text-xl';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars text-xl';
+            });
+        });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97416fa77266492b',t:'MTc1NjAyMzY4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9741782991f03dad',t:'MTc1NjAyNDAzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
